@@ -1,0 +1,78 @@
+# Colten (Luca) Vance Mikulastik
+""" Rubberband cars (Elastic Potential Energy, distance, and arc-length calculation"""
+
+VOD: "Introduction to Elastic Potential Energy with Examples" : https://www.youtube.com/watch?v=7ZnpsCV2GSY
+
+-elastic potential energy, how rubber bands store energy when moved
+-Formula: (PE_e) = (1/2) kx^2
+    -PE_e: is the elastic potential energy
+    -k: is the spring Constant in (Newtons/meters)
+    -x: is displacement from equilibrium
+
+-the spring constant can be thought of as the force required to move the thing from equilibrium
+    -can also be thought of as the slope of a graph drawn between: newtons(y), and distance from equilibrium in meters (x).
+        -in such a graph the y intercept would be 0, and the rate of change between the two shoudl be linear
+    -the more distance add to the object the more potential energy it gains
+
+-for the elastic potential energy formual, you should get after all is said and done a value in the units N*m
+    -Newton * meters = Joules
+    -Joules can also be represented by: J = (kg * (m^2)) / (s^2)
+        -this is kilograms times squared meters, divided by the squared seconds
+
+-so we can get joules out of this equation if we know the:
+    -Spring constant:
+    -displacement from equilibrium:
+
+-if we know the potential energy in joules can we then just put that value into the kenetic energy in joules?
+    -yes because they are the same energy is measured in Joules
+    -and if we know the mass of the car, we can then calulate how far it will go?
+        -we can't really calculate that without knowing some other information
+
+VOD: "Determining the Spring Constant, k, with a vertically hanging mass"
+    -this might be a way that I could calculate the spring constant and then the elastic potential energy of people's rubber bands
+ 
+    -to do this:
+        -measure the length of the rubberband at its "normal length": maybe streatch it out a little
+        -then hang weight from the rubber band
+        -measure the length of the rubberband while it's under stress
+        -now calculate:
+     
+    -first you want teh units to match so, meters, and kilograms
+
+    -equation for a spring force: F_s = -kx
+        -k: spring const
+        -x: displacement from equalibrium position
+        -fyi the spring force will be up, because it's counteracting the force of gravity pulling down
+
+    -Newtons Second Law: Sigma F_y = F_s - F_g
+        -the net force in the y direction is equal to the springforce minus the force of gravity
+        -also: Sigma F_y = m a_y
+            -net force is equal to the mass times acceleration in the y direction
+                -the object is not moving, so ( mass times 0 = 0)
+        -Sigma F_y = 0
+        -F_s and F_g are equal
+            - F_s = F_g
+    
+    -Substitute Equations:
+        -F_s = -kx 
+        -F_g = mg
+        -(kx = mg)
+            -btw there is no need for the negative anymore
+            -we are trying to find k so...
+        -k = (mg)/x
+            -m: mass is 
+            -g: acceleration due to gravity
+                -acceleration due to gravity: g = G*M/R^2
+                    -g: acceleration due to gravity: (9.81) a bit different depending on where you go
+                    -G: universal gravitational constant
+                    -M: mass
+                    -R: distance
+            -x: final length - initial length, make sure it's positive
+        
+    -complete: make sure that your answer is in Newtons per meter
+        -
+
+    -my example:
+        -5oz weight
+        -2 (3/4) inch rubber band
+        -4 (1/4) inch under weight

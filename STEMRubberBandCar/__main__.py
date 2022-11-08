@@ -3,7 +3,7 @@ def calculate_spring_const():
     """ calculates the spring constant value for a rubber band or spring """
     # notify user about the correct units to use
     print("in order for calculations to work, you will have to use correct units")
-    print("length in meters, and mass in kilograms.")
+    print("length in inches, and mass in ounces.")
     # collect information from the user
     init_x = float(input("what is the length of your rubber band when relaxed? (x_i): "))
     mass_obj = float(input("how heavy is the object used to put rubber band under weight? (m): "))
@@ -12,9 +12,19 @@ def calculate_spring_const():
     # notify user to wait
     print("calculating...")
 
+    # consts go here
     # define gravitational acceleration
     GRAV_ACC = 9.81
+    # ounces to kg goes here
+    CONV_OZ_TO_KG = 0.02834952
+    # inches to meters goes here
+    CONV_IN_TO_M = 0.0254
 
+    # convert numbers given by the user
+    init_x = init_x * CONV_IN_TO_M
+    fin_x = fin_x * CONV_IN_TO_M
+    mass_obj = mass_obj * CONV_OZ_TO_KG
+    	
     # calculate spring const 
     # k = (mg)/x
     spring_const = (mass_obj * GRAV_ACC) / (fin_x - init_x)

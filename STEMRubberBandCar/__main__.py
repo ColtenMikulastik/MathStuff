@@ -1,4 +1,22 @@
 
+
+def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known = False):
+    """ calculates the current elastic energy of the rubber band """
+    # don't really have to worry about formating this input
+    if spring_const_known:
+        # if teh spring constant is known then all we have to do is calculate
+        print("calculating elastic energy")
+    else:
+        print("spring constant and delta x of your rubber band isn't known please input the following")
+        print("unit information for this calculation: length in meters, spring constant in N/m")
+        # gonna do this later
+    
+    # calculate the elastic potential energy
+    # U=(1/2) k (d_x)^2
+    elastic_potential_energy = (1/2) * spring_const * ((fin_x - init_x)**2)
+    print("The elastic potential energy in current system is: " + str(elastic_potential_energy) + " Joules")
+
+
 def calculate_spring_const():
     """ calculates the spring constant value for a rubber band or spring """
     # notify user about the correct units to use
@@ -31,6 +49,9 @@ def calculate_spring_const():
     
     # print results
     print( "The spring constant of your spring is: " + str(spring_const) + " N/m.")
+    
+    # calculate the elastic energy now
+    calculate_elastic_energy(spring_const, init_x, fin_x, True)
 
 
 

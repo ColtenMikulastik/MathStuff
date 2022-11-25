@@ -42,7 +42,7 @@ def calculate_spring_const():
     init_x = init_x * CONV_IN_TO_M
     fin_x = fin_x * CONV_IN_TO_M
     mass_obj = mass_obj * CONV_OZ_TO_KG
-    	
+
     # calculate spring const 
     # k = (mg)/x
     spring_const = (mass_obj * GRAV_ACC) / (fin_x - init_x)

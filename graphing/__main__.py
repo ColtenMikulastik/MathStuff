@@ -44,6 +44,9 @@ def main():
     print(str(list_x))
     print(str(list_y))
 
+    # call the plot function
+    plot(title, x_label, y_label, list_x, list_y)
+
 
 if __name__ == "__main__":
     main()

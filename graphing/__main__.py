@@ -3,12 +3,22 @@ from matplotlib import pyplot as plt
 import csv
 
 
+def write_csv_file(output_file, x_values, y_values):
+    """writes x and y values from two lists to a csv file"""
+    # will create the file if not already exist, and will write over existing data
+    # open file and begin context handler
+    with open(output_file, 'w', newline='') as csvfile:
+        csv_write = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        for row in range(len(x_values)):
+            csv_write.writerow([x_values[row], y_values[row]])
+
+
 def read_csv_file(input_file, x_values, y_values):
     """reads the input_file for the "x, y" in a comma seperated list file"""
     # open the file to be read from, setting newline as nothing
     with open(input_file, newline='') as csvfile:
         # create list with the correct delimiters
-        csv_read = csv.reader(csvfile, delimiter=",", quotechar='|')
+        csv_read = csv.reader(csvfile, delimiter=',', quotechar='|')
         # loop through the rows and copy the variables into the lists passed to the function via the arguments
         for row in csv_read:
             x_values.append(row[0])

@@ -1,6 +1,11 @@
 from graphing.__main__ import *
 # import my graphing functions to allow graphing
 
+# todo list:
+# [x]- print functionality
+# [x]- clear buffer functionality
+# [ ]- write to csv file functionality
+# [ ]- graph csv file functionality
 
 def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known=False):
     """ calculates the current elastic energy of the rubber band """
@@ -76,6 +81,7 @@ def interface():
         print("\"q\"- to quit program")
         print("\"w\"- to write current data in buffer to csv file")
         print("\"c\"- to clear the buffer")
+        print("\"p\"- to print current buffer")
         print("\"g\"- to begin graphing mode (note: requires csv file)")
         print("========================================================================")
         user_in = input("input here:")
@@ -93,6 +99,13 @@ def interface():
         elif user_in == 'c':
             print("clearing the current buffer...")
             # make the x and y variable list empty
+            x_variables_spring_const.clear()
+            y_variables_mass.clear()
+        elif user_in == 'p':
+            print("the current buffer is:")
+            # print out the contents of the two lists
+            print(str(x_variables_spring_const))
+            print(str(y_variables_mass))
         elif user_in == 'g':
             print("you have selected to graph the data in the buffer")
             # call the graphing function

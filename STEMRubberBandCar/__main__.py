@@ -1,6 +1,6 @@
 
 
-def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known = False):
+def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known=False):
     """ calculates the current elastic energy of the rubber band """
     # don't really have to worry about formating this input
     if spring_const_known:
@@ -78,7 +78,6 @@ def interface():
         else:
             print("you have selected an option that is not available sorry,")
             print("try again!")
-
 
 
 def main():

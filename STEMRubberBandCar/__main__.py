@@ -1,6 +1,12 @@
 from graphing.__main__ import *
 # import my graphing functions to allow graphing
 
+
+# Global Variables
+
+x_variables = []
+y_variables = []
+
 # todo list:
 # [x]- print functionality
 # [x]- clear buffer functionality
@@ -24,7 +30,7 @@ def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known=Fal
     print("The elastic potential energy in current system is: " + str(elastic_potential_energy) + " Joules")
 
 
-def calculate_spring_const(x_variables_spring_const, y_variables_mass):
+def calculate_spring_const():
     """ calculates the spring constant value for a rubber band or spring """
     # notify user about the correct units to use
     print("in order for calculations to work, you will have to use correct units")
@@ -45,6 +51,10 @@ def calculate_spring_const(x_variables_spring_const, y_variables_mass):
     # inches to meters goes here
     CONV_IN_TO_M = 0.0254
 
+    # add results to the lists "buffer"
+    x_variables.append(int(fin_x - init_x))
+    y_variables.append(int(mass_obj))
+
     # convert numbers given by the user
     init_x = init_x * CONV_IN_TO_M
     fin_x = fin_x * CONV_IN_TO_M
@@ -54,12 +64,8 @@ def calculate_spring_const(x_variables_spring_const, y_variables_mass):
     # k = (mg)/x
     spring_const = (mass_obj * GRAV_ACC) / (fin_x - init_x)
 
-    # add results to the lists "buffer"
-    x_variables_spring_const.append(spring_const)
-    y_variables_mass.append(mass_obj)
-
     # print results
-    print( "The spring constant of your spring is: " + str(spring_const) + " N/m.")
+    print("The spring constant of your spring is: " + str(spring_const) + " N/m.")
     
     # calculate the elastic energy now
     calculate_elastic_energy(spring_const, init_x, fin_x, True)
@@ -68,8 +74,6 @@ def calculate_spring_const(x_variables_spring_const, y_variables_mass):
 def interface():
     """ prints the interface until they quit """
     # create the x and y variable buffer
-    x_variables_spring_const = []
-    y_variables_mass = []
 
     # create hte input variable outside of loop scope
     user_in = 0
@@ -92,20 +96,20 @@ def interface():
         elif user_in == 'a':
             print("you have selected to start calculating!")
             # call calculation function
-            calculate_spring_const(x_variables_spring_const, y_variables_mass)
+            calculate_spring_const()
         elif user_in == 'w':
             print("writing your current buffer into a csv file...")
             # call the csv write function
         elif user_in == 'c':
             print("clearing the current buffer...")
             # make the x and y variable list empty
-            x_variables_spring_const.clear()
-            y_variables_mass.clear()
+            x_variables.clear()
+            y_variables.clear()
         elif user_in == 'p':
             print("the current buffer is:")
             # print out the contents of the two lists
-            print(str(x_variables_spring_const))
-            print(str(y_variables_mass))
+            print(str(x_variables))
+            print(str(y_variables))
         elif user_in == 'g':
             print("you have selected to graph the data in the buffer")
             # call the graphing function

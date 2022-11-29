@@ -11,7 +11,7 @@ y_variables = []
 # [x]- print functionality
 # [x]- clear buffer functionality
 # [x]- write to csv file functionality
-# [ ]- graph csv file functionality
+# [x]- graph csv file functionality
 # [ ]- read from csv file functionality
 
 
@@ -99,6 +99,7 @@ def interface():
         print("\"w\"- to write current data in buffer to csv file")
         print("\"c\"- to clear the buffer")
         print("\"p\"- to print current buffer")
+        print("\"r\"- to read csv file to current buffer (overwrites)")
         print("\"g\"- to begin graphing mode (note: requires csv file)")
         print("========================================================================")
         user_in = input("input here:")
@@ -128,7 +129,17 @@ def interface():
             print(str(y_variables))
         elif user_in == 'g':
             print("you have selected to graph the data in the buffer")
+            graph_current_buffer()
             # call the graphing function
+        elif user_in == 'r':
+            # ask user what file to read from
+            print("please give the name of the file that you would like to read from.")
+            file_n = input("name: ")
+            # make sure to clear the lists before adding to them
+            x_variables.clear()
+            y_variables.clear()
+            # call the read csv file function
+            read_csv_file(file_n, x_variables, y_variables)
         else:
             print("you have selected an option that is not available sorry,")
             print("try again!")

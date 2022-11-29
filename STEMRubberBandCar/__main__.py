@@ -1,3 +1,20 @@
+from graphing.__main__ import *
+# import my graphing functions to allow graphing
+
+# Global Variables
+x_variables = []
+y_variables = []
+
+
+def graph_current_buffer():
+    """ sends the buffered information to the plot function """
+    # set variables for the plot function
+    elas_title = "Elastic Variables"
+    elas_subtitle_m = "Change in Length (in)"
+    elas_subtitle_d = "Mass (oz)"
+
+    # plot data from the buffer
+    plot(elas_title, elas_subtitle_m,  elas_subtitle_d, x_variables, y_variables)
 
 
 def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known=False):
@@ -38,6 +55,10 @@ def calculate_spring_const():
     # inches to meters goes here
     CONV_IN_TO_M = 0.0254
 
+    # add results to the lists "buffer"
+    x_variables.append(int(fin_x - init_x))
+    y_variables.append(int(mass_obj))
+
     # convert numbers given by the user
     init_x = init_x * CONV_IN_TO_M
     fin_x = fin_x * CONV_IN_TO_M
@@ -46,25 +67,31 @@ def calculate_spring_const():
     # calculate spring const 
     # k = (mg)/x
     spring_const = (mass_obj * GRAV_ACC) / (fin_x - init_x)
-    
+
     # print results
-    print( "The spring constant of your spring is: " + str(spring_const) + " N/m.")
+    print("The spring constant of your spring is: " + str(spring_const) + " N/m.")
     
     # calculate the elastic energy now
     calculate_elastic_energy(spring_const, init_x, fin_x, True)
 
 
-
 def interface():
     """ prints the interface until they quit """
+    # create the x and y variable buffer
+
     # create hte input variable outside of loop scope
     user_in = 0
     while user_in != 'q':
         print("==============RUBBERBAND SPRING CONSTANT CALCULATOR=====================")
         print("options:")
         print("========================================================================")
-        print("\"a\"- to start calulating")
+        print("\"a\"- to start calculating")
         print("\"q\"- to quit program")
+        print("\"w\"- to write current data in buffer to csv file")
+        print("\"c\"- to clear the buffer")
+        print("\"p\"- to print current buffer")
+        print("\"r\"- to read csv file to current buffer (overwrites)")
+        print("\"g\"- to begin graphing mode (note: requires csv file)")
         print("========================================================================")
         user_in = input("input here:")
         if user_in == 'q':
@@ -75,6 +102,35 @@ def interface():
             print("you have selected to start calculating!")
             # call calculation function
             calculate_spring_const()
+        elif user_in == 'w':
+            print("writing your current buffer into a csv file...")
+            print("what would you like to call the csv file?")
+            name = input("name: ")
+            write_csv_file(name, x_variables, y_variables)
+            # call the csv write function
+        elif user_in == 'c':
+            print("clearing the current buffer...")
+            # make the x and y variable list empty
+            x_variables.clear()
+            y_variables.clear()
+        elif user_in == 'p':
+            print("the current buffer is:")
+            # print out the contents of the two lists
+            print(str(x_variables))
+            print(str(y_variables))
+        elif user_in == 'g':
+            print("you have selected to graph the data in the buffer")
+            graph_current_buffer()
+            # call the graphing function
+        elif user_in == 'r':
+            # ask user what file to read from
+            print("please give the name of the file that you would like to read from.")
+            file_n = input("name: ")
+            # make sure to clear the lists before adding to them
+            x_variables.clear()
+            y_variables.clear()
+            # call the read csv file function
+            read_csv_file(file_n, x_variables, y_variables)
         else:
             print("you have selected an option that is not available sorry,")
             print("try again!")

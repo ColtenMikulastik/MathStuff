@@ -19,8 +19,8 @@ def graph_current_buffer():
     """ sends the buffered information to the plot function """
     # set variables for the plot function
     elas_title = "Elastic Variables"
-    elas_subtitle_m = "Mass"
-    elas_subtitle_d = "Change in Length"
+    elas_subtitle_m = "Change in Length (in)"
+    elas_subtitle_d = "Mass (oz)"
 
     # plot data from the buffer
     plot(elas_title, elas_subtitle_m,  elas_subtitle_d, x_variables, y_variables)

@@ -30,7 +30,7 @@ def plot(t_title, t_x_name, t_y_name, list_x, list_y):
     plt.title(t_title)
     plt.xlabel(t_x_name)
     plt.ylabel(t_y_name)
-    plt.scatter(list_x, list_y)
+    plt.plot(list_x, list_y)
     plt.show()
 
 

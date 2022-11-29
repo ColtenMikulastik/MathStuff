@@ -1,18 +1,9 @@
 from graphing.__main__ import *
 # import my graphing functions to allow graphing
 
-
 # Global Variables
-
 x_variables = []
 y_variables = []
-
-# todo list:
-# [x]- print functionality
-# [x]- clear buffer functionality
-# [x]- write to csv file functionality
-# [x]- graph csv file functionality
-# [ ]- read from csv file functionality
 
 
 def graph_current_buffer():

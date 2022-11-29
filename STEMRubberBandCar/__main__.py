@@ -12,8 +12,7 @@ y_variables = []
 # [x]- clear buffer functionality
 # [x]- write to csv file functionality
 # [ ]- graph csv file functionality
-#   [ ]- create logic to graph from current buffer, or from csv file
-#   [ ]- create func to actually do those things
+# [ ]- read from csv file functionality
 
 
 def graph_current_buffer():
@@ -23,9 +22,8 @@ def graph_current_buffer():
     elas_subtitle_m = "Mass"
     elas_subtitle_d = "Change in Length"
 
-    # send information to the plot function
+    # plot data from the buffer
     plot(elas_title, elas_subtitle_m,  elas_subtitle_d, x_variables, y_variables)
-
 
 
 def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known=False):

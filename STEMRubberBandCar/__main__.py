@@ -10,8 +10,23 @@ y_variables = []
 # todo list:
 # [x]- print functionality
 # [x]- clear buffer functionality
-# [ ]- write to csv file functionality
+# [x]- write to csv file functionality
 # [ ]- graph csv file functionality
+#   [ ]- create logic to graph from current buffer, or from csv file
+#   [ ]- create func to actually do those things
+
+
+def graph_current_buffer():
+    """ sends the buffered information to the plot function """
+    # set variables for the plot function
+    elas_title = "Elastic Variables"
+    elas_subtitle_m = "Mass"
+    elas_subtitle_d = "Change in Length"
+
+    # send information to the plot function
+    plot(elas_title, elas_subtitle_m,  elas_subtitle_d, x_variables, y_variables)
+
+
 
 def calculate_elastic_energy(spring_const, init_x, fin_x, spring_const_known=False):
     """ calculates the current elastic energy of the rubber band """
@@ -99,6 +114,9 @@ def interface():
             calculate_spring_const()
         elif user_in == 'w':
             print("writing your current buffer into a csv file...")
+            print("what would you like to call the csv file?")
+            name = input("name: ")
+            write_csv_file(name, x_variables, y_variables)
             # call the csv write function
         elif user_in == 'c':
             print("clearing the current buffer...")

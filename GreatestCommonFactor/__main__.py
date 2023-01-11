@@ -9,6 +9,7 @@ def find_gcf(first_number, second_number):
     if first_number > second_number:
         pass
     elif second_number > first_number:
+        # just swap the two numbers
         temp = second_number
         second_number = first_number
         first_number = temp

@@ -13,6 +13,9 @@ def find_gcf(first_number, second_number):
         temp = second_number
         second_number = first_number
         first_number = temp
+    else:
+        # if the two numbers are the same value or etc return first num
+        return first_number
 
     # loop doing euclideans algorythm
     while second_number != 0:

@@ -5,10 +5,14 @@ def calculate_quadratic(a_var, b_var, c_var):
     """calculates the roots for a quadratic formula"""
 
     # print all teh values that are input into the function
-    print("a: " + str(a_var)) 
-    print("b: " + str(b_var)) 
-    print("c: " + str(c_var)) 
+    print("a: " + a_var) 
+    print("b: " + b_var) 
+    print("c: " + c_var) 
     
+    # make them numbers and not strings
+    a_var = float(a_var)
+    b_var = float(b_var)
+    c_var = float(c_var)
     # start by squaring the b variable, and calc info inside the sqrt
     sqrt_prt = ((b_var ** 2) - (4 * a_var * c_var))
     # turn the outside b negative
@@ -30,8 +34,19 @@ def calculate_quadratic(a_var, b_var, c_var):
 
 
 def main():
-    # call the main function
-    calculate_quadratic(1,2,3)
+   
+    quit = False
+    while not(quit):
+        print("======Quadriatic Calc=====")
+        user_in = input("Would you like to calculate?")
+        if user_in == 'y':
+            # call the quadriatic calc function
+            var_a = input("what is your 'a' value?: ")
+            var_b = input("what is your 'a' value?: ")
+            var_c =input("what is your 'a' value?: ")
+            calculate_quadratic(var_a, var_b, var_c)
+        else:
+            quit = True
 
 
 if __name__ == "__main__":

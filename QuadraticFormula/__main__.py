@@ -30,7 +30,9 @@ def calculate_quadratic(a_var, b_var, c_var):
         img = "i" 
         # print the answer in an interesting way
         print( "x= " + str(hanging_b) + " +- " + str(math.sqrt(sqrt_prt)) + " " + img +  " / " + str(denom))
-
+    else:
+        print("x= " + str((hanging_b + math.sqrt(sqrt_prt)) / denom))
+        print("x= " + str((hanging_b - math.sqrt(sqrt_prt)) / denom))
 
 
 def main():

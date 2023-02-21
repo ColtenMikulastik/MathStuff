@@ -23,13 +23,13 @@ def calculate_quadratic(a_var, b_var, c_var):
     # create the imaginary number string
     img = ""
 
+    # I wanna make this give two real numbers if there are no imageinary 
     # if the sqrt is of a negative, set the img string
     if sqrt_prt < 0:
         sqrt_prt = sqrt_prt * -1
-        img = "i"
-    
-    # print the answer in an interesting way
-    print( "x= " + str(hanging_b) + " +- " + str(math.sqrt(sqrt_prt)) + " " + img +  " / " + str(denom))
+        img = "i" 
+        # print the answer in an interesting way
+        print( "x= " + str(hanging_b) + " +- " + str(math.sqrt(sqrt_prt)) + " " + img +  " / " + str(denom))
 
 
 

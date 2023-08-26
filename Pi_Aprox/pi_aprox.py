@@ -1,9 +1,27 @@
 # Colten (Luca) Vance Mikulastik
 import math
 
-
 def calc_pi(sides):
-    """ calculates pie, for a given amount of sides of an inscribed shape """
+    """ calls inside and outside shape functions """
+    inside_shape(sides)
+    outside_shape(sides)
+
+
+def outside_shape(sides):
+    """ calculuates area of the shape with sides outside circle """
+    # represents the inside angle  
+    theta = 360 / (sides * 2)
+
+    # first leg is radius, and second leg is tangent so 1 * tangent
+    rec_area = math.tan((theta * math.pi) / 180)
+
+    # print output
+    print("pi is less than: " + str(rec_area * sides))
+    
+
+
+def inside_shape(sides):
+    """ calculates area, for a given amount of sides of an inscribed shape """
     print("for " + str(sides) + " sides")
 
     # theta represtents the inside angle
@@ -18,14 +36,14 @@ def calc_pi(sides):
     print("leg_two: " + str(leg_two))
     
     # calculuate the area of the rectangle for each side
-    rectangle_area = leg_one * leg_two
+    rec_area = leg_one * leg_two
     
-    print("pi is at least: " + str(rectangle_area * sides))
+    print("pi is at least: " + str(rec_area * sides))
 
 
 def main():
     """ drives function with gui """
-    calc_pi(1000)
+    calc_pi(10000000)
 
 
 

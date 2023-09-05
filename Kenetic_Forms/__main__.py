@@ -11,7 +11,9 @@ def calc():
     dif_pos = input("what is your displacement: ")
     
     # this will probably take some time that I don't really have rn
-    if (init_vel == "" || fin_vel == "") && 
+    if (init_vel == "" || fin_vel == "") && (ini_vel != "" || :
+        if( dif_time == ""):
+            # we can assume that we do know init or 
     
 
 

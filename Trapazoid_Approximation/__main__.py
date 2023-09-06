@@ -1,4 +1,4 @@
-
+import math
 
 def trapazoid_approx(n_var, func, start_a, stop_b):
     """ using arguments: n, function, a, and b to approximate area under curve """
@@ -18,11 +18,11 @@ def trapazoid_approx(n_var, func, start_a, stop_b):
     # loop through our new x vaules
     for x in x_sub_i:
         # replace x in the loop with those values
-        print(str(eval(func)))
+        print("function at point (" + str(x) + ") is: " + str(eval(func)))
         accumulate = accumulate + eval(func)
     
     # calculate the approximation 
-    print(str((delta_x / 2) * accumulate))
+    print("your approximation is: " + str((delta_x / 2) * accumulate))
     
 
 

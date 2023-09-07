@@ -4,10 +4,9 @@ def trapazoid_approx(n_var, func, start_a, stop_b):
     """ using arguments: n, function, a, and b to approximate area under curve """
     # omg just found out that this function exists :^O eval()
     
+    # creating variables
     accumulate = float(0)
-
     x_sub_i = list()
-    
     delta_x = (stop_b - start_a)/n_var
 
     # not only do we need to loop evaluating teh functions but we also need to loop our x vars

@@ -1,7 +1,7 @@
 import math
 
 def trapazoid_approx(n_var, func, start_a, stop_b):
-    """ using arguments: n, function, a, and b to approximate area under curve """
+    """ using arguments: n, function, a, and b to approximate area under curve with the trappazoidal approximation"""
     # omg just found out that this function exists :^O eval()
     
     # creating variables
@@ -14,11 +14,20 @@ def trapazoid_approx(n_var, func, start_a, stop_b):
         print("xi variable for n=" + str(i) + " is :" + str(start_a + ( i * delta_x)))
         x_sub_i.append(float(start_a + ( i * delta_x)))
 
+    #### problem here about the first and last terms, 1, 2, 2, 2, 2, 1
+    
+    iterator = int(0)
+
     # loop through our new x vaules
     for x in x_sub_i:
         # replace x in the loop with those values
         print("function at point (" + str(x) + ") is: " + str(eval(func)))
-        accumulate = accumulate + eval(func)
+        if iterator == 0 or iterator == n_var:
+            accumulate = accumulate + eval(func)
+        else:
+            # multiply by 2
+            accumulate = accumulate + (2 * eval(func))
+        iterator = iterator + 1
     
     # calculate the approximation 
     print("your approximation is: " + str((delta_x / 2) * accumulate))

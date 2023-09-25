@@ -1,5 +1,28 @@
 import math
 
+def simpson_approx(n_var, func, start_a, stop_b):
+    """ using arguments: n, function, a, and b to approximate area under curve with the simposon approximation"""
+    
+    if (nvar % 2) == 1:
+        print("your n value must be odd in order for simpson's rule to work")
+
+    # create variables
+    accumulate = float(0)
+    x_sub_i = list()
+    delta_x = (stop_b - start_a) / n_var
+
+    # find each x_sub_i to x_sub_n
+    for i in range(0, n_var + 1):
+        print("xi variable for n=" + str(i) + " is : " + str( start_a + (i * delta_x)))
+        x_sub_i.append(float(start_a + ( i * delta_x)))
+
+    # this is were the function diverges from trapazoid
+    # simpson rule functions on 1, 4, 2, 4, 1. startig 1, 4 and ending 4, 1
+    # so n has to be... odd?
+    
+    iterator = int(0)
+    
+
 def trapazoid_approx(n_var, func, start_a, stop_b):
     """ using arguments: n, function, a, and b to approximate area under curve with the trappazoidal approximation"""
     # omg just found out that this function exists :^O eval()
@@ -31,6 +54,7 @@ def trapazoid_approx(n_var, func, start_a, stop_b):
     
     # calculate the approximation 
     print("your approximation is: " + str((delta_x / 2) * accumulate))
+    return (delta_x / 2) * accumulate
     
 
 

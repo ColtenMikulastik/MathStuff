@@ -43,7 +43,8 @@ def inside_shape(sides):
 
 def main():
     """ drives function with gui """
-    calc_pi(10000000)
+    sides = input("please give \'n\' for a \'n\'-sided shape:") 
+    calc_pi(int(sides))
 
 
 

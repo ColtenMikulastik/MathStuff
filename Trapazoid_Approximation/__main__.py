@@ -3,7 +3,7 @@ import math
 def simpson_approx(n_var, func, start_a, stop_b):
     """ using arguments: n, function, a, and b to approximate area under curve with the simposon approximation"""
     
-    if (nvar % 2) == 1:
+    if not((nvar % 2) == 1):
         print("your n value must be odd in order for simpson's rule to work")
 
     # create variables
@@ -20,8 +20,34 @@ def simpson_approx(n_var, func, start_a, stop_b):
     # simpson rule functions on 1, 4, 2, 4, 1. startig 1, 4 and ending 4, 1
     # so n has to be... odd?
     
-    iterator = int(0)
-    
+    # starting iterator from '1' this time
+    iterator = int(1)
+
+    print( str(len(x_sub_i)))
+    for x in x_sub_i:
+        if iterator == 1:
+            # starting the simpsons rule thing, leading multiple 1
+            print( str(iterator) + " starting 1" )
+            accumulate = accumulate + (1 * eval(func))
+
+        elif iterator == len(x_sub_i):
+            # then check for the final number, leading multiple 1
+            print(str(iterator) + "ending 1")
+            accumulate = accumulate + (1 * eval(func))
+
+        elif (iterator % 2) == 1:
+            # check if odd, leading multiple 2
+            print( str(iterator) + "odd 2 ")
+            accumulate = accumulate + (2 * eval(func))
+
+        elif (iterator % 2) == 0:
+            # check if even, leading multiple 4
+            print(str(iterator)  + "even 4 ")
+            accumulate = accumulate + (4 * eval(func))
+
+        iterator = iterator + 1
+    print("your approximation is: " + str((delta_x / 3) * accumulate))
+    return ((delta_x / 3) * accumulate)
 
 def trapazoid_approx(n_var, func, start_a, stop_b):
     """ using arguments: n, function, a, and b to approximate area under curve with the trappazoidal approximation"""

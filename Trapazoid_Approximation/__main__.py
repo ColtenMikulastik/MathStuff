@@ -3,8 +3,11 @@ import math
 def simpson_approx(n_var, func, start_a, stop_b):
     """ using arguments: n, function, a, and b to approximate area under curve with the simposon approximation"""
     
-    if not((nvar % 2) == 1):
-        print("your n value must be odd in order for simpson's rule to work")
+    if (n_var % 2) == 1:
+        print("your n value must be even in order for simpson's rule to work")
+        print("adding one to your n value and continuing")
+        n_var = n_var + 1
+        
 
     # create variables
     accumulate = float(0)
@@ -92,7 +95,7 @@ def main():
     func = input("please give your function in some format: ")
     n_var = int(input("please give your n variable (how accurate your approximation is): "))
     # send it to the function
-    trapazoid_approx(n_var, func, start_a, stop_b)
+    simpson_approx(n_var, func, start_a, stop_b)
 
 
 if __name__ == "__main__":

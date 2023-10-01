@@ -1,5 +1,18 @@
 import math
 
+
+
+def dirivative_approx(func, h_var):
+    """ approximates the dirivative of a function where h> closer aprox"""
+    # using the limit def of a dirivative
+    # this is gonna be harder than I thought
+    dir = func(
+
+
+def arc_len():
+    """ will attempt to calculate the arc length of a function over an interval using trapazoid approx """
+
+
 def simpson_approx(n_var, func, start_a, stop_b):
     """ using arguments: n, function, a, and b to approximate area under curve with the simposon approximation"""
     

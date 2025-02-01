@@ -1,4 +1,7 @@
 
+def convert_from_decimal():
+
+
 
 def convert_to_dec( base, word ):
     """ Convert from a given base number system to decimal """
@@ -22,6 +25,7 @@ def main():
     thing1 = [ 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1 ]
     thing2 = [ 3, 2, 0 ]
     convert_to_dec(4, thing2)
+
 
     return 0
 
